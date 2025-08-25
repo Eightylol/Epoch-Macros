@@ -4,6 +4,10 @@ Inspiration for macro making & general tips/tricks.
 ## How To Use
 Click on the folders/text files for more info.
 
+## Sources & Inspiration
+@Meridaw
+@RagedUnicorn
+
 ## Project Epoch knowledge sources
 Official Website - https://www.project-epoch.net/ <br>
 Official Discord - https://discord.com/invite/mzCSaZYWuC <br>
