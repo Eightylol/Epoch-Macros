@@ -45,7 +45,6 @@
 #showtooltip Kill Command
 /use 13
 /use 14
-/cast Spirit Pulse
 /cast Kill Command
 ```
 
