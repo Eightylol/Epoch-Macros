@@ -3,7 +3,7 @@
 ### Bash
 ```
 #showtooltip Bash
-/cast !Bear Form
+/cast [noform:1] Bear Form(Shapeshift)
 /cast Bash
 ```
 
