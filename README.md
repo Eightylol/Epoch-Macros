@@ -1,12 +1,13 @@
 # Project Epoch - Macros & guides
-Inspiration for macro making & general tips/tricks.
-
-## How To Use
-Click on the folders/text files for more info.
+Inspiration for macro making & general tips/tricks. <br>
+Click on the text files for more info.
 
 ## Sources & Inspiration
-@Meridaw
-@RagedUnicorn
+@Meridaw ,
+@RagedUnicorn , 
+Icy Veins , 
+WowHead
+
 
 ## Project Epoch knowledge sources
 Official Website - https://www.project-epoch.net/ <br>
