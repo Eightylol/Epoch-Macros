@@ -1,26 +1,5 @@
 # Warlock Macros
 
-### Unending Resolve + Healthstone
-```
-#showtooltip Unending Resolve
-/use Healthstone
-/cast Unending Resolve
-```
-
-### Fel Domination + Pet
-```
-#showtooltip Summon <pet of choice>
-/use Fel Domination
-/use Summon <pet of choice>
-```
-
-### DoT Mouseover Example
-> "Corruption" can be replaced with any DoT spell.
-```
-#showtooltip Corruption
-/use [@mouseover,harm] [harm] Corruption
-```
-
 ### Banish Focus
 ```
 #showtooltip Banish
@@ -34,61 +13,56 @@
 /cast Demonic Circle
 ```
 
-### Moral Coil or Howl of Terror
-> Bind the two spells to the same key, depending on what you have talented. Makes temporary spec changes simpler.
+### DoT Mouseover Example
+> "Corruption" can be replaced with any DoT.
 ```
-#showtooltip
-/use [talent:5/2,@mouseover,exists] Mortal Coil; [talent:5/2] Mortal Coil; [talent:5/3] Howl of Terror
-```
-
-### Grimire: Felguard
-```
-#showtooltip Grimoire: Felguard
-/petattack
-/use 13
-/use 14
-/cast Blood Fury
-/cast Grimoire: Felguard
+#showtooltip Corruption
+/use [@mouseover,harm] [harm] Corruption
 ```
 
-### Summon Demonic Tyrant
+### Drain Life
 ```
-#showtooltip Summon Demonic Tyrant
-/petattack
-/use 13
-/use 14
-/cast Blood Fury
-/cast Summon Demonic Tyrant
+#showtooltip Drain Life
+/cast [nochanneling:Drain Life] Drain Life
 ```
 
-### Demonbolt
-> Can be used with any spell to start pet attack
+### Fear
 ```
-#showtooltip Demonbolt
-/petattack
-/cast Demonbolt
+#showtooltip Fear
+/stopcasting
+/cast Fear
 ```
 
-### Havoc
-> Cast on Mouseover target, or current target.
+### Fel Domination + Pet
 ```
-#showtooltip Havoc
-/cast [@mouseover,harm] Havoc; [harm] Havoc
+#showtooltip Summon <pet of choice>
+/use Fel Domination
+/use Summon <pet of choice>
+```
+
+### Incinerate
+```
+#showtooltip Incinerate
+/cast Demonic Empowerment
+/cast Incinerate
 ```
 
 ### Rain of Fire
-> Case at cursor to avoiding circle and click.
+> Cast at cursor.
 ```
 #showtooltip Rain of Fire
 /cast [@cursor] Rain of Fire
 ```
 
-### Rain of Fire
-> Case at cursor to avoiding circle and click.
+### Ritual of Souls
 ```
-#showtooltip Summon Infernal
-/use 13
-/use 14
-/cast Blood Fury
-/cast [@cursor] Summon Infernal
+#showtooltip Ritual of Souls
+/s Click Please!
+/cast Ritual of Souls
+```
+
+### Shadow Bolt Rank 1 
+```
+#showtooltip
+/cast [@mouseover,harm,nodead] [] Shadow Bolt(Rank 1)
 ```

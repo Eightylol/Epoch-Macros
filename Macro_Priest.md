@@ -1,5 +1,26 @@
 # Priest Macros
 
+### Binding Heal
+>Cast on mouseover if present, otherwise on target or self.
+```
+#showtooltip Binding Heal
+/cast [@mouseover, exists] Binding Heal; Binding Heal
+```
+
+### Flash Heal
+>Cast on mouseover if present, otherwise on target or self.
+```
+#showtooltip Flash Heal
+/cast [@mouseover, exists] Flash Heal; Flash Heal
+```
+
+### Greater Heal
+>Cast on mouseover if present, otherwise on target or self.
+```
+#showtooltip Greater Heal
+/cast [@mouseover, exists] Greater Heal; Greater Heal
+```
+
 ### Mind Blast
 ```
 #showtooltip Mind Blast
@@ -30,17 +51,52 @@
 /cast Power Word: Shield(Rank 10)
 ```
 
-### Power Infusion (Mouseover)
+### Powerr Infusion
+>Cast on mouseover if present, otherwise on target or self.
 ```
 #showtooltip Power Infusion
-/use 14
-/cast [@mouseover][] Power Infusion
+/cast [@mouseover, exists, noharm] Power Infusion; Power Infusion
 ```
 
 ### Prayer of Healing
 ```
 #showtooltip Prayer of Healing
 /cast [target=mouseover,help][help][] Prayer of Healing; Prayer of Healing
+```
+
+### Prayer of Mending
+>Cast on mouseover if present, then on focus if present, otherwise on target or self.
+```
+#showtooltip Prayer of Mending
+/cast [@mouseover, exists, noharm] Prayer of Mending; [@focus, exists, noharm] Prayer of Mending; Prayer of Mending
+```
+
+### Pain Suppression
+>Cast on mouseover if present, then on focus if present, otherwise on target or self.
+```
+#showtooltip Pain Suppression
+/cast [@mouseover, exists] Pain Suppression; [@focus, exists, noharm] Pain Suppression; Pain Suppression
+```
+
+### Power Word: Shield
+>Cast on mouseover if present, otherwise on target or self.
+```
+#showtooltip Power Word: Shield
+/cast [@mouseover, exists] Power Word: Shield; Power Word: Shield
+```
+
+### Renew
+>Cast on mouseover if present, otherwise on target or self.
+```
+#showtooltip Renew
+/cast [@mouseover, exists] Renew; Renew
+```
+
+### Shadow Word: Death
+```
+#showtooltip Shadow Word: Death
+/cast Inner Focus
+/cast Shadow Word: Death
 ```
 
 ### Shadow Word: Pain
@@ -51,12 +107,7 @@
 /cast [@mouseover,harm,nodead] Shadow Word: Pain; Shadow Word: Pain
 ```
 
-### Shadow Word: Death
-```
-#showtooltip Shadow Word: Death
-/cast Inner Focus
-/cast Shadow Word: Death
-```
+
 
 #### Silence
 ```
