@@ -33,6 +33,28 @@
 /cast Bestial Wrath
 ```
 
+### Feed Pet
+```
+#showtooltip Roasted Quail
+/cast [pet, nodead] Feed Pet
+/use FOOD OF CHOICE
+```
+
+### Feign Death
+```
+#showtooltip Feign Death
+/stopattack
+/petpassive
+/cast Feign Death
+```
+
+### Hunter's Mark /w Pet attack
+```
+#showtooltip Hunter's Mark
+/petattack
+/cast Hunter's Mark
+```
+
 ### Hunter's Mark /w Skull
 ```
 #showtooltip Hunter's Mark
@@ -46,6 +68,15 @@
 /use 13
 /use 14
 /cast Kill Command
+```
+
+### Melee
+```
+#showtooltip
+/stopcasting
+/cast Raptor Strike
+/startattack
+/cast Mongoose Bite
 ```
 
 ### Mend Pet
@@ -69,6 +100,13 @@
 /use 14
 /petattack
 /cast Rapid Fire
+```
+
+### Scatter Shot
+```
+#showtooltip Scatter Shot
+/petpassive
+/cast Scatter Shot
 ```
 
 ### Serpent Sting

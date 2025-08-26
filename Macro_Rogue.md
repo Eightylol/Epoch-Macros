@@ -8,6 +8,15 @@
 /cast Adrenaline Rush
 ```
 
+### Apply Poison
+> Left + Right mouse button click
+```
+#showtooltip Deadly Poison IX
+/use Deadly Poison IX;
+/use [button:1] 16; [button:2] 17;
+/click StaticPopup1Button1
+```
+
 ### Backstab
 ```
 #showtooltip

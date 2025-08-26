@@ -44,11 +44,18 @@
 /cast [nochanneling:Mind Flay] Mind Flay
 ```
 
-### Power Word: Shield
+### Pain Suppression
+>Cast on mouseover if present, then on focus if present, otherwise on target or self.
 ```
-#showtooltip
-/dismount
-/cast Power Word: Shield(Rank 10)
+#showtooltip Pain Suppression
+/cast [@mouseover, exists] Pain Suppression; [@focus, exists, noharm] Pain Suppression; Pain Suppression
+```
+
+### Power Word: Shield
+>Cast on mouseover if present, otherwise on target or self.
+```
+#showtooltip Power Word: Shield
+/cast [@mouseover, exists] Power Word: Shield; Power Word: Shield
 ```
 
 ### Powerr Infusion
@@ -71,18 +78,19 @@
 /cast [@mouseover, exists, noharm] Prayer of Mending; [@focus, exists, noharm] Prayer of Mending; Prayer of Mending
 ```
 
-### Pain Suppression
->Cast on mouseover if present, then on focus if present, otherwise on target or self.
+
+### Psychic Horror 
+> Mouseover -> target prioritization
 ```
-#showtooltip Pain Suppression
-/cast [@mouseover, exists] Pain Suppression; [@focus, exists, noharm] Pain Suppression; Pain Suppression
+#Showtooltip Psychic Horror
+/cast [target=mouseover, harm][harm] Psychic Horror
 ```
 
-### Power Word: Shield
->Cast on mouseover if present, otherwise on target or self.
+### Psychic Horror
+> Focustarget
 ```
-#showtooltip Power Word: Shield
-/cast [@mouseover, exists] Power Word: Shield; Power Word: Shield
+#Showtooltip Psychic Horror
+/cast [target=focus] Psychic Horror
 ```
 
 ### Renew
@@ -91,6 +99,10 @@
 #showtooltip Renew
 /cast [@mouseover, exists] Renew; Renew
 ```
+
+Shadowform, spammable - it won't drop you out of form after you're in shadowform.
+/cast !Shadowform
+
 
 ### Shadow Word: Death
 ```
@@ -107,9 +119,22 @@
 /cast [@mouseover,harm,nodead] Shadow Word: Pain; Shadow Word: Pain
 ```
 
+### Silence
+> Mouseover -> target prioritization
+```
+#showtooltip
+/cast [target=mouseover, harm][harm] Silence
+```
+
+### Silence
+> Focustarget
+```
+#showtooltip
+/cast [target=focus] Silence
+```
 
 
-#### Silence
+### Silence
 ```
 #showtooltip
 /stopcasting
