@@ -81,6 +81,14 @@
 /cast [target=mouseover, exists] Kick); [target=focus, exists] Kick; Kick
 ```
 
+### Pickpocket
+```
+#showtooltip Pick Pocket
+/targetenemy [no harm][dead]
+/cast Pick Pocket
+/cleartarget
+```
+
 ### Poison Application
 ```
 #showtooltip
