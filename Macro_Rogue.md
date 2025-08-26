@@ -93,12 +93,12 @@
 /use 16
 ```
 
-### Riposte
+### Riposte / Sinister Strike
 ```
 #showtooltip
 /startattack
-/cast Riposte
-/cast Sinister Strike
+/cast [mod:shift] Riposte; Sinister Strike
+
 ```
 
 ### Sap closest enemy
