@@ -55,8 +55,7 @@
 ```
 
 ### In-Combat Sap
->Dismount, stealth if not in stealth, Sap if player has a target
-<br>
+>Dismount, stealth if not in stealth, Sap if player has a target <br>
 >Spam for success
 ```
 #showtooltip Stealth
@@ -66,8 +65,7 @@
 ```
 
 ### In-Combat Sap (Shadowstep)
->Shadowstep, stealth if not in stealth, Sap if player has a target
-<br>
+>Shadowstep, stealth if not in stealth, Sap if player has a target <br>
 >Spam for success
 ```
 #showtooltip Shadowstep
