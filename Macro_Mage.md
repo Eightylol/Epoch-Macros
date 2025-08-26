@@ -1,6 +1,7 @@
 # Mage Macros
 
 ### Arcane Blast
+> Can also be used with [nochanneling : Arcane Missiles]
 ```
 #showtooltip Arcane Blast
 /cast Arcane Blast
