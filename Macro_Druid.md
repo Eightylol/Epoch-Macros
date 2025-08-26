@@ -14,6 +14,13 @@
 /startattack
 ```
 
+### Cyclone
+```
+#showtooltip Cyclone
+/stopcasting
+/cast [@focus] Cyclone
+```
+
 ### Challenging Roar
 ```
 #showtooltip Challenging Roar
@@ -35,8 +42,8 @@
 /cast Prowl
 ```
 
-### Travel
+### Travel Form
 ```
 #showtooltip
-/cast [swimming] !Aquatic Form; [noswimming] !Travel Form
+/cast [swimming] !Aquatic Form;[outdoors] !Travel Form; !Cat Form
 ```
