@@ -44,7 +44,14 @@
 /cast Faerie Fire
 ```
 
-### Feral Charge
+### Feral Charge (Castsequence)
+> spam to charge
+```
+#showtooltip Feral Charge
+/castsequence reset=5 bear form, feral charge
+```
+
+### Feral Charge (Not working atm)
 ```
 #showtooltip Feral Charge
 /cancelform [noform:1]
@@ -78,6 +85,7 @@
 ```
 
 ### Prowl
+> needs doubleclicking - spammable
 ```
 #showtooltip Prowl
 /cancelform [noform:3]
