@@ -7,6 +7,13 @@
 /cast [@mouseover, exists] Binding Heal; Binding Heal
 ```
 
+### Dispel 
+>Dispel self without losing target
+```
+#showtooltip
+/cast [target=player] Dispel Magic(Rank 2)
+```
+
 ### Flash Heal
 >Cast on mouseover if present, otherwise on target or self.
 ```
@@ -21,6 +28,12 @@
 /cast [@mouseover, exists] Greater Heal; Greater Heal
 ```
 
+### Mass Dispel
+```
+#showtooltip
+/cast !Mass Dispel
+```
+
 ### Mind Blast
 ```
 #showtooltip Mind Blast
@@ -28,13 +41,6 @@
 /use 14
 /cast Inner Focus
 /cast Mind Blast
-```
-
-### Dispel 
->Dispel self without losing target
-```
-#showtooltip
-/cast [target=player] Dispel Magic(Rank 2)
 ```
 
 ### Mind Flay
@@ -100,13 +106,17 @@
 /cast [@mouseover, exists] Renew; Renew
 ```
 
-Shadowform, spammable - it won't drop you out of form after you're in shadowform.
+### Shadowform
+> Spammable - it won't drop you out of form after you're in shadowform.
+```
+#showtooltip
 /cast !Shadowform
-
+```
 
 ### Shadow Word: Death
 ```
 #showtooltip Shadow Word: Death
+/stopcasting
 /cast Inner Focus
 /cast Shadow Word: Death
 ```
