@@ -293,7 +293,33 @@ Here are practical templates you can adapt:
 /run SendAddonMessage("MYADDON", "hello", "WHISPER", UnitName("party1"))
 ```
 
+<br>
 
+### 🔹 Communication Examples (All Classes)
+
+* **Generic raid warning:**
+
+```lua
+/run SendChatMessage("Cooldowns NOW!", "RAID_WARNING")
+```
+
+* **Whisper a healer:**
+
+```lua
+/run SendChatMessage("I'm low HP, help!", "WHISPER", nil, "HealerName")
+```
+
+* **Addon sync (hidden comms):**
+
+```lua
+/run SendAddonMessage("MYADDON","readycheck","RAID")
+```
+
+* **Custom emote:**
+
+```lua
+/run DoEmote("dance", UnitName("target"))
+```
 
 
 <br>
@@ -628,35 +654,3 @@ Most examples are annotated so you can understand and adapt it.
 
 
 ---
-
-<br>
-<br>
-
-## 🔹 Communication Examples (All Classes)
-
-* **Generic raid warning:**
-
-```lua
-/run SendChatMessage("Cooldowns NOW!", "RAID_WARNING")
-```
-
-* **Whisper a healer:**
-
-```lua
-/run SendChatMessage("I'm low HP, help!", "WHISPER", nil, "HealerName")
-```
-
-* **Addon sync (hidden comms):**
-
-```lua
-/run SendAddonMessage("MYADDON","readycheck","RAID")
-```
-
-* **Custom emote:**
-
-```lua
-/run DoEmote("dance", UnitName("target"))
-```
-
----
-
