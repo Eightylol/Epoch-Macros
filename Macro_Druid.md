@@ -102,7 +102,7 @@
 /cast [nostealth] Rake; [stealth] Pounce
 ```
 
-### Pounce / Main
+### Pounce / Maim
 ```
 #showtooltip
 /cast [stealth] Pounce; [nostealth] Maim
@@ -159,6 +159,13 @@
 /cast Frenzied Regeneration
 /use Major Healing Potion
 /cancelaura Enrage
+```
+
+### Feral Charge
+```
+#showtooltip Feral Charge
+/cast [noform:1] !Dire Bear Form
+/cast [@mouseover,harm,nodead][@focus,harm,nodead][] Feral Charge
 ```
 
 ### Innervate
