@@ -46,6 +46,16 @@
 /cast Charge
 ```
 
+### Charge/Hamstring
+```
+#showtooltip
+/cast Battle Stance
+/cast Charge
+/cast Hamstring
+/startattack
+```
+
+
 ### Charge/Overpower
 ```
 #showtooltip Overpower
@@ -83,26 +93,26 @@
 ```
 #showtooltip Pummel
 /startattack
-/cast [stance:1/2,worn:Shields] Shield Bash
+/cast [form:1/2,worn:Shields] Shield Bash
 /cast [noworn:Shields] Berserker Stance
-/cast [stance:3] Pummel
+/cast [form:3] Pummel
 ```
 
 ### Double Interrupt (mouseover)
 ```
 #showtooltip Pummel
 /startattack
-/cast [stance:1/2,worn:Shields,@mouseover,harm,nodead][stance:1/2,worn:Shields] Shield Bash
-/stopcasting [stance:1/2,noworn:Shields]
+/cast [form:1/2,worn:Shields,@mouseover,harm,nodead][form:1/2,worn:Shields] Shield Bash
+/stopcasting [form:1/2,noworn:Shields]
 /cast [noworn:Shields] Berserker Stance
-/cast [stance:3,@mouseover,harm,nodead][stance:3] Pummel
+/cast [form:3,@mouseover,harm,nodead][form:3] Pummel
 ```
 
-### Equip Shield+Defensive Stance
+### Equip Shield+Defensive form
 ```
 /equipslot 17 Aegis of the Scarlet Commander
 /equipslot 16 Vanquisher's Sword
-/cast Defensive Stance
+/cast Defensive form
 ```
 
 ### Equip Shield
@@ -122,7 +132,7 @@
 #showtooltip Execute
 /startattack
 /stopcasting
-/cast [stance:2] Berserker Stance
+/cast [form:2] Berserker Stance
 /cast Execute
 ```
 
@@ -131,7 +141,7 @@
 ```
 #showtooltip Hamstring
 /startattack
-/cast [stance:2] Berserker Stance
+/cast [form:2] Berserker Stance
 /cast Hamstring
 ```
 
@@ -139,7 +149,7 @@
 ```
 #showtooltip Hamstring
 /startattack
-/cast [stance:2] Battle Stance
+/cast [form:2] Battle Stance
 /cast Hamstring
 ```
 
@@ -194,7 +204,7 @@
 ```
 #showtooltip Rend
 /startattack
-/cast [stance:3] Battle Stance
+/cast [form:3] Battle Stance
 /cast Rend
 ```
 
@@ -202,7 +212,7 @@
 ```
 #showtooltip Rend
 /startattack
-/cast [stance:3] Defensive Stance
+/cast [form:3] Defensive Stance
 /cast Rend
 ```
 
@@ -236,7 +246,7 @@
 /stopcasting [noworn:Shields]
 /equipslot 17 Aegis of the Scarlet Commander
 /equipslot 16 Vanquisher's Sword
-/cast [stance:3,worn:Shields] Battle Stance
+/cast [form:3,worn:Shields] Battle Stance
 /cast Shield Bash
 ```
 
@@ -245,7 +255,7 @@
 #showtooltip Shield Bash
 /startattack
 /stopcasting [noworn:Shields]
-/cast [stance:3,worn:Shields] Battle Stance
+/cast [form:3,worn:Shields] Battle Stance
 /cast [@mouseover,harm,nodead][] Shield Bash
 ```
 
@@ -278,7 +288,7 @@
 /stopcasting [noworn:Shields]
 /equipslot 17 Aegis of the Scarlet Commander
 /equipslot 16 Vanquisher's Sword
-/cast [stance:3,worn:Shields] Battle Stance
+/cast [form:3,worn:Shields] Battle Stance
 /cast Shield Bash
 ```
 
@@ -287,7 +297,7 @@
 #showtooltip Shield Bash
 /startattack
 /stopcasting [noworn:Shields]
-/cast [stance:3,worn:Shields] Battle Stance
+/cast [form:3,worn:Shields] Battle Stance
 /cast [@mouseover,harm,nodead][] Shield Bash
 ```
 
@@ -302,7 +312,7 @@
 ```
 #showtooltip Victory Rush
 /startattack
-/cast [stance:1] Victory Rush; [stance:3] Victory Rush; Berserker Stance
+/cast [form:1] Victory Rush; [form:3] Victory Rush; Berserker Stance
 ```
 
 
@@ -337,7 +347,7 @@
 /stopcasting [noworn:Shields]
 /equipslot 17 Aegis of the Scarlet Commander
 /equipslot 16 Vanquisher's Sword
-/cast [stance:3,worn:Shields] Battle Stance
+/cast [form:3,worn:Shields] Battle Stance
 /cast Shield Bash
 ```
 
@@ -346,7 +356,7 @@
 #showtooltip Shield Bash
 /startattack
 /stopcasting [noworn:Shields]
-/cast [stance:3,worn:Shields] Battle Stance
+/cast [form:3,worn:Shields] Battle Stance
 /cast [@mouseover,harm,nodead][] Shield Bash
 ```
 
@@ -372,7 +382,7 @@
 ```
 #showtooltip Whirlwind
 /startattack
-/stopcasting [stance:1/2]
+/stopcasting [form:1/2]
 /cast Berserker Stance
 /cast Whirlwind
 ```
@@ -383,7 +393,7 @@
 ```
 #showtooltip Sweeping Strikes
 /startattack
-/stopcasting [stance:2/3]
+/stopcasting [form:2/3]
 /cast Battle Stance
 /cast Sweeping Strikes
 ```
@@ -392,9 +402,9 @@
 ```
 #showtooltip Sweeping Strikes
 /startattack
-/stopcasting [stance:2/3]
+/stopcasting [form:2/3]
 /cast Battle Stance
-/cast [stance:1,combat] Bloodrage
+/cast [form:1,combat] Bloodrage
 /cast Sweeping Strikes
 ```
 
@@ -419,7 +429,12 @@
 /cast Challenging Shout
 ```
 
-
+### Intimidating Shout
+```
+#showtooltip Intimidating Shout
+/cast Intimidating Shout
+/stopattack
+```
 
 
 
@@ -491,14 +506,10 @@
 /cast Shield Bash
 ```
 
-
-
-
-
 ### Rend (Tank)
 ```
 #showtooltip Rend
 /startattack
-/cast [stance:3] Defensive Stance
+/cast [form:3] Defensive Stance
 /cast Rend
 ```
