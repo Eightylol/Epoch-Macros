@@ -1989,10 +1989,9 @@ Spam for success
 #showtooltip Taunt
 /startattack [harm,nodead]
 /cast Defensive Stance
-/cast [@mouseover,harm,nodead][] Taunt
+/cast [@mouseover,harm,nodead] [harm] [@targettarget,harm,nodead] [] Taunt
 ```
-
-
+* Enemy mouseover > enemy target > enemy target of target > default
 
 ### Thunder Clap
 ```
