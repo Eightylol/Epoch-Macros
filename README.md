@@ -378,7 +378,6 @@ Here are practical templates you can adapt:
 - Macro system in 3.3.5: /cast, /use, /castsequence, /focus, /click, /run
 - You can’t **condition on health/mana values** in 3.3.5 macros (protected functions).
 - **[target=]** and **@** are **fully interchangeable**.
-<br>
 Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 - %t, %f, %m only expand in **chat/emote macros**, never in /cast.
 - Most macros can only execute **one GCD ability per press** — no automation beyond that.
