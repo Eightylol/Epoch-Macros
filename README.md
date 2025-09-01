@@ -2148,7 +2148,14 @@ Hold Shift to clear.
 <br>
 
 ## ☕ Buy me a coffee
+
 If you like my content and would like to show your appreciation, feel free to buy me a coffee.  <br>
 https://buymeacoffee.com/eightyfive
+
+
+
+
+
+
 
 ---
