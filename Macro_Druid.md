@@ -15,11 +15,22 @@
 ```
 
 ### Cyclone
+> Simple
 ```
 #showtooltip Cyclone
 /stopcasting
-/cast [@focus] Cyclone
+/cast [@mouseover,harm,nodead][@focus,harm,nodead][] Cyclone
 ```
+
+### Cyclone
+> With War Stomp
+```
+#showtooltip Cyclone
+/stopcasting
+/cast War Stomp
+/cast [@mouseover,harm,nodead][@focus,harm,nodead][] Cyclone
+```
+
 
 ### Challenging Roar
 ```
@@ -34,6 +45,13 @@
 /cancelform [noform:3]
 /cast [noform:3] Cat Form
 /cast Dash
+```
+
+### Entangling Roots
+```
+#showtooltip Entangling Roots
+/stopcasting
+/cast [@mouseover,harm,nodead][@focus,harm,nodead][] Entangling Roots
 ```
 
 ### Faerie Fire
@@ -68,7 +86,8 @@
 ### Hibernate
 ```
 #showtooltip Hibernate
-/cast [@mouseover,harm]Hibernate
+/stopcasting
+/cast [@mouseover,harm,nodead][@focus,harm,nodead][] Hibernate
 ```
 
 ### Innervate (untested)
@@ -81,6 +100,12 @@
 ```
 #showtooltip
 /cast [nostealth] Rake; [stealth] Pounce
+```
+
+### Pounce / Main
+```
+#showtooltip
+/cast [stealth] Pounce; [nostealth] Maim
 ```
 
 ### Powershift
@@ -103,6 +128,13 @@
 ```
 #showtooltip
 /cast [stealth] Ravage; [nostealth] Shred
+```
+
+### Rebirth / Revive
+```
+#showtooltip Rebirth
+/stopcasting
+/cast [combat] Rebirth ; Revive
 ```
 
 ### Travel Form
@@ -138,7 +170,7 @@
 
 ### Rebirth / Revive
 ```
-#showtooltip Rebirth(Rank 7)
+#showtooltip Rebirth
 /stopmacro [nohelp,nodead]
 /run c="Resurrecting %t"if UnitInRaid("player")then SendChatMessage(c, "RAID")elseif GetNumPartyMembers()>0 then SendChatMessage(c, "PARTY")end
 /cast [combat] Rebirth ; Revive
