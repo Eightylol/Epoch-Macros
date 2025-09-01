@@ -1,4 +1,10 @@
-# Hunter Macros
+
+---
+
+# 📜 Hunter Macros
+
+---
+<br>
 
 ### Aimed Shot
 ```

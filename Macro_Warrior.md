@@ -1,4 +1,10 @@
-# Warrior Macros
+
+---
+
+# 📜 Warrior Macros
+
+---
+
 <br>
 
 ### Battle Shout

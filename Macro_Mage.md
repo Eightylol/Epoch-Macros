@@ -1,4 +1,10 @@
-# Mage Macros
+
+---
+
+# 📜 Mage Macros
+
+---
+<br>
 
 ### Arcane Blast
 > Can also be used with [nochanneling : Arcane Missiles]

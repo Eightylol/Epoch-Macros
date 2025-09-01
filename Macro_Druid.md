@@ -1,4 +1,10 @@
-# Druid Macros
+
+---
+
+# 📜 Druid Macros
+
+---
+<br>
 
 ### Bash
 ```
@@ -148,7 +154,7 @@
 <br>
 <br>
 
-# Needs testing - will edit based on results
+## Needs testing - will edit based on results
 
 ### Bear Heal
 > Double-tap - uses enrage and then cancels enrage at the end to cancel armor reduction
@@ -169,10 +175,19 @@
 ```
 
 ### Innervate
+> Target with whisper
 ```
 #showtooltip Innervate
 /cast [help] Innervate
 /script SendChatMessage("innervated.", "WHISPER", nil, UnitName("target"))
+```
+
+### Innervate
+> Mouseover with whisper
+```
+#showtooltip Innervate
+/cast [@mouseover,help,exists,nodead][] Innervate 
+/script SendChatMessage("innervated.", "WHISPER", nil, UnitName("mouseover"))
 ```
 
 ### Rebirth / Revive

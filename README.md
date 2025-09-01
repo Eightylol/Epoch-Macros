@@ -1,4 +1,10 @@
-# Project Epoch - Macros & guides
+
+---
+
+# 📜 Project Epoch - Macros & guides
+
+---
+
 Inspiration for macro making & general tips/tricks. <br>
 Click on the text files for more info.
 

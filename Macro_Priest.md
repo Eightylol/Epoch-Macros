@@ -1,4 +1,10 @@
-# Priest Macros
+
+---
+
+# 📜 Priest Macros
+
+---
+<br>
 
 ### Binding Heal
 >Cast on mouseover if present, otherwise on target or self.

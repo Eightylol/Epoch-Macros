@@ -1,4 +1,10 @@
-# Shaman Macros
+
+---
+
+# 📜 Shaman Macros
+
+---
+<br>
 
 ### Call of the Ancestors
 ```
@@ -20,7 +26,7 @@
 >Cast on mouseover if present, otherwise on target or self.
 ```
 #showtooltip Chain Heal
-/cast [target=mouseover, exists] Chain Heal; Chain Heal
+/cast [@mouseover,nodead,help][] Chain Heal
 ```
 
 ### Chain Lightning
@@ -36,14 +42,14 @@
 #showtooltip Earth Shock
 /use 13
 /use 14
-/cast Earth Shock
+/cast [@mouseover,nodead,harm][@target,nodead,harm][] Earth Shock
 ```
 
 ### Earth Shield
 >Cast on mouseover if present, then on focus if present, otherwise on target or self.
 ```
 #showtooltip Earth Shield
-/cast [target=mouseover, exists] Earth Shield; [target=focus,exists,noharm] Earth Shield; Earth Shield
+/cast [@mouseover,nodead,help][@focus,nodead,help][] Earth Shield; 
 ```
 
 ### Elemental Mastery
@@ -65,7 +71,7 @@
 >Cast on mouseover if present, otherwise on target or self.
 ```
 #showtooltip Healing Wave
-/cast [target=mouseover, exists] Healing Wave; Healing Wave
+/cast [@mouseover,nodead,help][] Healing Wave
 ```
 
 ### Healing Wave - NS
@@ -76,14 +82,14 @@
 /cast Nature's Swiftness
 /use 13
 /use 14
-/cast [target=mouseover, exists] Healing Wave; Healing Wave
+/cast [@mouseover,nodead,help][] Healing Wave
 ```
 
 ### Lesser Healing Wave
 >Cast on mouseover if present, otherwise on target or self.
 ```
 #showtooltip Lesser Healing Wave
-/cast [target=mouseover, exists] Lesser Healing Wave; Lesser Healing Wave
+/cast [@mouseover,nodead,help][] Lesser Healing Wave
 ```
 
 ### Lightning Bolt
@@ -97,7 +103,8 @@
 ### Purge
 ```
 #showtooltip
-/cast [@mouseover,nodead] Purge; [@target] Purge
+/stopcasting
+/cast [@mouseover,nodead][@target,nodead][] Purge
 ```
 
 ### Stormstrike

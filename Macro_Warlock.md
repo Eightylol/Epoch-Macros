@@ -1,4 +1,10 @@
-# Warlock Macros
+
+---
+
+# 📜 Warlock Macros
+
+---
+<br>
 
 ### Banish Focus
 ```

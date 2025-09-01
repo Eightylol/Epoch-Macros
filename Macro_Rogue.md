@@ -1,4 +1,10 @@
-# Rogue Macros
+
+---
+
+# 📜 Rogue Macros
+
+---
+<br>
 
 ### Adrenaline Rush
 ```

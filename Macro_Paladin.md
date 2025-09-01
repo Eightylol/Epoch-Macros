@@ -1,4 +1,10 @@
-# Paladin Macros
+
+---
+
+# 📜 Paladin Macros
+
+---
+<br>
 
 ### Avenging Wrath
 > Popping all cooldowns
