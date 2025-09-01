@@ -71,6 +71,12 @@
 /cast [@mouseover,harm]Hibernate
 ```
 
+### Innervate (untested)
+```
+#showtooltip Innervate
+/cast [@mouseover,help,exists,nodead][@target,help,exists,nodead][] Innervate 
+```
+
 ### Pounce / Rake
 ```
 #showtooltip
