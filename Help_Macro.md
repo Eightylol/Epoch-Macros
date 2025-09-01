@@ -1,7 +1,7 @@
 
 ---
 
-# 📜 WoW 3.3.5 Macro & Communication Reference (Project Epoch)
+# 📜 WoW 3.3.5 Macro Compendium (Project Epoch)
 
 This is a comprehensive guide to the **macro and communication system** in the **3.3.5 client**. <br>
 Project Epoch inherits all of these features.
