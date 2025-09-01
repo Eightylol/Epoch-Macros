@@ -1,45 +1,46 @@
 
 ---
 
-# 📜 WoW 3.3.5 Macro Reference (Project Epoch)
+# 📜 WoW 3.3.5 Macro & Communication Reference (Project Epoch)
+
+This is a comprehensive guide to the **macro and communication system** in the **3.3.5 client**. <br>
+Project Epoch inherits all of these features.
 
 ---
 
-## 🔹 1. Macro Commands (Slash Commands)
+## 🔹 1. Macro Commands
 
-These are the most common ones you’ll use inside a macro:
+Macros are built from **slash commands**, sometimes with **conditionals** (`[ ]`) or **Lua** (`/run` or `/script`).
 
-| Command                                                                                  | Description                                                                         |
-| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `/cast`                                                                                  | Cast a spell                                                                        |
-| `/use`                                                                                   | Use an item, trinket, or ability                                                    |
-| `/castsequence`                                                                          | Cast spells in sequence (can reset)                                                 |
-| `/target`                                                                                | Target a unit (by name, or conditionally)                                           |
-| `/assist`                                                                                | Assist a unit (target their target)                                                 |
-| `/focus`                                                                                 | Set focus target                                                                    |
-| `/clearfocus`                                                                            | Clear your focus                                                                    |
-| `/petattack`, `/petfollow`, `/petstay`, `/petpassive`, `/petdefensive`, `/petaggressive` | Pet controls                                                                        |
-| `/stopcasting`                                                                           | Cancel your current spellcast                                                       |
-| `/stopattack`                                                                            | Stop auto-attacking                                                                 |
-| `/startattack`                                                                           | Start auto-attacking                                                                |
-| `/cancelaura`                                                                            | Remove a buff/debuff                                                                |
-| `/cancelqueuedspell`                                                                     | Cancel a queued spell (like Heroic Strike)                                          |
-| `/equip` / `/equipslot`                                                                  | Equip an item (optionally in a slot)                                                |
-| `/swapactionbar`                                                                         | Swap between action bars (1–6)                                                      |
-| `/click`                                                                                 | Click another action bar button (chain macros)                                      |
-| `/run` or `/script`                                                                      | Run Lua code (disabled on some servers, but usually works on 3.3.5 private servers) |
+| Command                                                                                  | Description                                                      |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `/cast`                                                                                  | Casts a spell.                                                   |
+| `/use`                                                                                   | Uses an item, trinket, or ability.                               |
+| `/castsequence`                                                                          | Casts spells in a defined sequence (can reset with time/target). |
+| `/target`                                                                                | Selects a target by name or condition.                           |
+| `/assist`                                                                                | Targets your target’s target.                                    |
+| `/focus`                                                                                 | Sets your focus target.                                          |
+| `/clearfocus`                                                                            | Clears your focus target.                                        |
+| `/petattack`, `/petfollow`, `/petstay`, `/petpassive`, `/petdefensive`, `/petaggressive` | Pet commands.                                                    |
+| `/stopcasting`                                                                           | Stops your current spellcast.                                    |
+| `/stopattack`                                                                            | Stops auto-attacking.                                            |
+| `/startattack`                                                                           | Starts auto-attacking.                                           |
+| `/cancelaura`                                                                            | Removes a buff/debuff.                                           |
+| `/cancelqueuedspell`                                                                     | Cancels a queued “on-next-swing” spell (e.g., Heroic Strike).    |
+| `/equip` / `/equipslot`                                                                  | Equips an item (optionally in a slot).                           |
+| `/swapactionbar`                                                                         | Switches to another action bar (1–6).                            |
+| `/click`                                                                                 | Activates another action button (chain macros).                  |
+| `/run` or `/script`                                                                      | Executes Lua code. (Protected functions are blocked.)            |
 
 ---
 
 ## 🔹 2. Targeting & Substitutions
 
-### `@unit` / `[target=unit]`
-
-Specifies who to act on:
+### `@unit` (or `[target=unit]`)
 
 * `@target` → current target
 * `@focus` → focus target
-* `@mouseover` → unit your mouse is over
+* `@mouseover` → unit under mouse (model or frame)
 * `@player` → yourself
 * `@pettarget` → your pet’s target
 * `@party1` … `@party4` → party members
@@ -47,7 +48,7 @@ Specifies who to act on:
 * `@arena1` … `@arena5` → arena enemies
 * `@boss1` … `@boss4` → boss units
 
-💡 `@unit` is shorthand for `[target=unit]`. Both work.
+💡 `@unit` and `[target=unit]` are **interchangeable** in 3.3.5.
 
 ---
 
@@ -55,93 +56,75 @@ Specifies who to act on:
 
 * `%t` → name of your target
 * `%f` → name of your focus
-* `%m` → name of your mouseover target
+* `%m` → name of your mouseover
 
 Example:
 
 ```
-/y Focusing %t — kill it fast!
+/y Attacking %t next!
 ```
 
 ---
 
 ## 🔹 3. Conditionals
 
-Conditionals go inside `[ ]`. You can chain them:
+Conditionals go inside `[ ]`.
 
-* Commas (`,`) = AND logic
-* Semicolons (`;`) = OR logic (priority order)
+* **Commas (`,`)** = AND logic.
+* **Semicolons (`;`)** = OR logic (priority order).
 
 Example:
 
 ```
-/cast [mod:shift,@focus,harm][] Polymorph
+/cast [mod:shift,@focus,harm,nodead][] Polymorph
 ```
 
-→ Polymorphs focus if Shift held, else casts on target.
+→ Polymorphs focus if Shift held, otherwise your target.
 
 ---
 
 ### Target Conditionals
 
-| Conditional | Meaning                        |
-| ----------- | ------------------------------ |
-| `exists`    | Target exists                  |
-| `help`      | Target is friendly             |
-| `harm`      | Target is hostile              |
-| `dead`      | Target is dead                 |
-| `nodead`    | Target is alive                |
-| `party`     | Target is in your party        |
-| `raid`      | Target is in your raid         |
-| `group`     | You’re in a group (party/raid) |
-| `nogroup`   | You’re solo                    |
+* `exists` → Target exists
+* `help` → Target is friendly
+* `harm` → Target is hostile
+* `dead` / `nodead` → Target dead/alive
+* `party` → Target in your party
+* `raid` → Target in your raid
+* `group` → You are in a group
+* `nogroup` → You are solo
 
 ---
 
-### Self/Player State
+### Player State
 
-| Conditional     | Meaning                                                                |
-| --------------- | ---------------------------------------------------------------------- |
-| `combat`        | You are in combat                                                      |
-| `nocombat`      | You are not in combat                                                  |
-| `mounted`       | You are mounted                                                        |
-| `nomounted`     | You are not mounted                                                    |
-| `stealth`       | You are stealthed                                                      |
-| `stance:X`      | You are in stance/form X (see below)                                   |
-| `form:X`        | Same as stance                                                         |
-| `swimming`      | You are swimming                                                       |
-| `flying`        | You are flying                                                         |
-| `indoors`       | You are indoors                                                        |
-| `outdoors`      | You are outdoors                                                       |
-| `equipped:slot` | You have something equipped in slot (or type, e.g. `equipped:Shields`) |
+* `combat` / `nocombat` → In combat / not in combat
+* `mounted` / `nomounted` → Mounted / not mounted
+* `stealth` → In stealth
+* `swimming` → Swimming
+* `flying` → Flying
+* `indoors` / `outdoors` → Indoors / outdoors
+* `equipped:slot` → Equipped item in slot (or type, e.g. `equipped:Shields`)
 
 ---
 
-### Pet Conditionals
+### Pet
 
-| Conditional | Meaning                                |
-| ----------- | -------------------------------------- |
-| `pet`       | You have a pet                         |
-| `nopet`     | You do not have a pet                  |
-| `pet:NAME`  | Your pet is that type (e.g. `pet:Imp`) |
+* `pet` → You have a pet
+* `nopet` → You don’t have a pet
+* `pet:NAME` → Specific pet type (e.g., `pet:Imp`)
 
 ---
 
-### Modifiers (keyboard)
+### Modifiers
 
-| Conditional | Meaning                 |
-| ----------- | ----------------------- |
-| `mod:shift` | Shift is pressed        |
-| `mod:ctrl`  | Control is pressed      |
-| `mod:alt`   | Alt is pressed          |
-| `nomod`     | No modifier key pressed |
-| `mod`       | Any modifier pressed    |
+* `mod:shift`, `mod:ctrl`, `mod:alt` → Modifier key pressed
+* `nomod` → No modifier pressed
+* `mod` → Any modifier pressed
 
 ---
 
-### Stances / Forms
-
-Depends on class:
+### Stances & Forms
 
 * **Warrior**: `stance:1` Battle, `stance:2` Defensive, `stance:3` Berserker
 * **Druid**: `form:1` Bear, `form:2` Aquatic, `form:3` Cat, `form:4` Travel, `form:5` Moonkin/Tree, `form:6` Flight
@@ -152,57 +135,528 @@ Depends on class:
 
 ### Action Bar / Bonus Bars
 
-* `[bar:1]` → if action bar 1 is active
-* `[bonusbar:X]` → if bonus bar X is active (used for stance/stealth shifting)
+* `bar:1` … `bar:6` → Which action bar is active
+* `bonusbar:X` → Special action bars (stances, stealth, druid forms)
 
 ---
 
 ### Special Conditionals
 
-* `channeling:SpellName` → You are channeling that spell
-* `equipped:ItemType` → You have that type equipped (e.g. `equipped:Shields`)
-* `worn:ItemType` → Same as equipped
-* `flyable` → You are in a zone where flying mounts can be used
-* `mounted` → You’re mounted
-* `indoors` / `outdoors` → Self-explanatory
+* `channeling:SpellName` → If you are channeling that spell
+* `equipped:ItemType` → Type equipped (e.g. Shields, Daggers)
+* `flyable` → Zone allows flying mounts
 
 ---
 
-## 🔹 4. Practical Examples
+## 🔹 4. Communication API Functions
 
-**Mouseover heal with fallback:**
+These Lua functions can be called inside macros with `/run`.
+
+### `SendChatMessage(message, chatType, language, target)`
+
+* Sends a chat message.
+* `chatType` → `"SAY"`, `"YELL"`, `"PARTY"`, `"RAID"`, `"RAID_WARNING"`, `"WHISPER"`, `"CHANNEL"`, `"GUILD"`, `"OFFICER"`, `"EMOTE"`
+* `language` → `"Common"`, `"Orcish"`, etc. (or `nil`)
+* `target` → player name (for whispers) or channel number (for channels)
+
+---
+
+### `SendAddonMessage(prefix, message, distribution, target)`
+
+* Sends hidden addon messages.
+* `distribution` → `"PARTY"`, `"RAID"`, `"GUILD"`, `"BATTLEGROUND"`, `"WHISPER"`
+* `prefix` → up to 16 chars
+* `target` → player name (for whispers only)
+
+---
+
+### `DoEmote(emote, target, hold)`
+
+* Performs an emote.
+* `emote` → string (e.g. `"cheer"`, `"wave"`)
+* `target` (optional) → player name
+* `hold` (optional) → loop flag
+
+---
+
+### `Emote(emoteToken)`
+
+* Alias for `DoEmote`.
+
+---
+
+### `DEFAULT_CHAT_FRAME:AddMessage(text, r, g, b)`
+
+* Prints text locally in your chat window.
+* `r, g, b` → numbers between 0–1 for color.
+
+---
+
+### Supporting Unit Functions
+
+* `UnitName(unit)` → Name of unit
+* `UnitClass(unit)` → Class name & token
+* `UnitRace(unit)` → Race name
+* `UnitLevel(unit)` → Unit level
+* `UnitIsPlayer(unit)` → True if player
+* `UnitExists(unit)` → True if exists
+
+---
+
+## 🔹 5. Combat-Legal Lua
+
+In combat, **secure functions are blocked** (e.g., auto-targeting, changing action bars),
+but you can still use communication and query functions.
+
+✅ Allowed in combat:
+
+* `SendChatMessage`
+* `SendAddonMessage`
+* `DoEmote` / `Emote`
+* `DEFAULT_CHAT_FRAME:AddMessage`
+* `Unit*` queries (UnitName, UnitExists, etc.)
+
+❌ Blocked in combat:
+
+* Protected actions (auto-targeting, casting spells via Lua).
+
+---
+
+### Combat-safe Examples
+
+**Announce your target:**
+
+```lua
+/run if UnitExists("target") then SendChatMessage("Attacking "..UnitName("target").."!", "SAY") end
+```
+
+**Raid warning:**
+
+```lua
+/run SendChatMessage("Bloodlust used!", "RAID_WARNING")
+```
+
+**Whisper focus:**
+
+```lua
+/run if UnitExists("focus") then SendChatMessage("I will CC you — don’t resist!", "WHISPER", nil, UnitName("focus")) end
+```
+
+**Emote at target:**
+
+```lua
+/run DoEmote("cheer", UnitName("target"))
+```
+
+**Debug message (local only):**
+
+```lua
+/run DEFAULT_CHAT_FRAME:AddMessage("Macro fired!",0,1,0)
+```
+
+---
+
+## 🔹 6. Communication Macro Toolkit
+
+Here are practical templates you can adapt:
+
+**1. Sheep announce (party & raid)**
+
+```
+/cast [@focus,harm,nodead] Polymorph
+/run if UnitExists("focus") then SendChatMessage("Polymorph on "..UnitName("focus").." — do NOT break!", "PARTY") end
+```
+
+**2. Mouseover heal announce**
+
+```
+/cast [@mouseover,help,nodead][] Flash Heal
+/run if UnitExists("mouseover") then SendChatMessage("Healing "..UnitName("mouseover").."!", "SAY") end
+```
+
+**3. Trinket usage announce**
+
+```
+/use 13
+/run SendChatMessage("Trinket activated!", "RAID")
+```
+
+**4. Kill target callout**
+
+```
+/run if UnitExists("target") and UnitIsPlayer("target") then SendChatMessage("Kill "..UnitName("target").." NOW!", "RAID_WARNING") end
+```
+
+**5. Addon communication (whisper)**
+
+```
+/run SendAddonMessage("MYADDON", "hello", "WHISPER", UnitName("party1"))
+```
+
+
+
+
+<br>
+<br>
+
+
+
+
+---
+
+# 📜 WoW 3.3.5 Class Macros
+
+---
+
+Provided below is **working macros** for each class in the **Wrath 3.3.5 client**.<br>
+Most examples are annotated so you can understand and adapt it.
+
+<br>
+
+
+
+## 🔹 Universal Macros
+
+
+### Focus set/clear
+
+```
+/focus [@mouseover,exists][] 
+/clearfocus [mod:shift]
+```
+
+* Sets focus to mouseover or target.
+* Hold Shift to clear.
+
+### Focus interrupt
+
+```
+/cast [@focus,harm,nodead] Kick
+```
+
+* Works for Kick, Pummel, Counterspell, etc.
+
+### Mouseover heal (generic)
 
 ```
 /cast [@mouseover,help,nodead][] Flash Heal
 ```
 
-**Focus CC with modifier:**
+### Announce CC
 
 ```
-/cast [mod:shift,@focus,harm,nodead][] Polymorph
+/cast [@focus,harm,nodead] Polymorph
+/run if UnitExists("focus") then SendChatMessage("Polymorph on "..UnitName("focus").." — do NOT break!", "PARTY") end
 ```
 
-**Mount macro (ground if no flying available):**
+---
+<br>
+<br>
+
+## 🔹 Warrior Macros
+
+
+### Charge + Intercept + Intervene (stance dance)
 
 ```
-/cast [flyable] Swift Flight Form; Swift Zulian Tiger
+/cast [stance:1/2] Charge; [stance:3] Intercept; [help] Intervene
+```
+* Uses correct ability depending on stance and target.
+
+
+### Shield Bash (focus interrupt)
+```
+/cast [@focus,harm,nodead] Shield Bash
 ```
 
-**Weapon swap + ability:**
-
+### Equip shield + Shield Block
 ```
-/equip [equipped:Shields] Staff of Domination
 /equip [noequipped:Shields] Shield of Impenetrable Darkness
 /cast Shield Block
 ```
 
----
-
-## 🔹 5. Special Notes
-
-* You can’t **condition on health/mana values** in 3.3.5 macros (protected functions).
-* `[target=]` and `@` are **fully interchangeable**.
-* `%t`, `%f`, `%m` only expand in **chat/emote macros**, never in `/cast`.
-* Most macros can only execute **one GCD ability per press** — no automation beyond that.
+### Shattering Throw (announce)
+```
+/cast Shattering Throw
+/run SendChatMessage("Casting Shattering Throw on "..UnitName("target").."!","RAID_WARNING")
+```
 
 ---
+
+<br>
+<br>
+
+## 🔹 Paladin Macros
+
+### Mouseover Cleanse
+
+```
+/cast [@mouseover,help,nodead] Cleanse
+```
+
+### Hand of Protection on focus
+
+```
+/cast [@focus,help,nodead] Hand of Protection
+```
+
+### Bubble + cancel
+
+```
+/cast Divine Shield
+/cancelaura Divine Shield
+```
+
+* First press bubbles, second press cancels.
+
+### PvP Hammer of Justice (focus)
+
+```
+/cast [@focus,harm,nodead][] Hammer of Justice
+```
+
+---
+
+<br>
+<br>
+
+## 🔹 Hunter Macros
+
+### Misdirection macro
+```
+/cast [@focus,help][@pet,exists] Misdirection
+```
+
+* Casts on focus if friendly, else on pet.
+
+### Scatter + trap
+```
+/cast Scatter Shot
+/cast [@focus] Freezing Trap
+```
+
+### Pet attack / follow toggle
+```
+/petattack [@target,harm]
+/petfollow [@target,noexists]
+```
+
+---
+
+<br>
+<br>
+
+## 🔹 Rogue Macros
+
+### Focus Sap
+
+```
+/cast [@focus,harm,nodead][] Sap
+```
+
+### Stealth toggle
+
+```
+/cast [nostealth] Stealth
+/cancelaura [stealth] Stealth
+```
+
+### Kick (focus interrupt)
+
+```
+/cast [@focus,harm,nodead][] Kick
+```
+
+### Vanish + announce
+
+```
+/cast Vanish
+/run SendChatMessage("VANISHED — reset fight!", "PARTY")
+```
+
+---
+
+<br>
+<br>
+
+## 🔹 Priest Macros
+
+### Mouseover Heal
+```
+/cast [@mouseover,help,nodead][] Flash Heal
+```
+
+### Dispel Magic on focus
+```
+/cast [@focus,exists] Dispel Magic
+```
+
+### Shadow Word: Death self-break
+```
+/cast [@player] Shadow Word: Death
+```
+* Useful to break CC.
+
+### Mass Dispel with cursor
+```
+/cast !Mass Dispel
+```
+* Places targeting circle at cursor for quick use.
+
+---
+
+<br>
+<br>
+
+## 🔹 Mage Macros
+
+### Focus Counterspell**
+
+```
+/cast [@focus,harm,nodead] Counterspell
+```
+
+### Sheep focus + announce**
+
+```
+/cast [@focus,harm,nodead] Polymorph
+/run if UnitExists("focus") then SendChatMessage("Sheeping "..UnitName("focus").." — do NOT break!","PARTY") end
+```
+
+### Ice Block toggle**
+
+```
+/cast !Ice Block
+/cancelaura Ice Block
+```
+
+### Evocation self-cancel**
+
+```
+/cast Evocation
+/stopcasting
+```
+
+---
+
+<br>
+<br>
+
+## 🔹 Warlock Macros
+
+### Focus Fear
+```
+/cast [@focus,harm,nodead] Fear
+```
+
+### Mouseover Banish
+```
+/cast [@mouseover,harm][] Banish
+```
+
+### Pet Spell Lock (focus)
+```
+/cast [@focus,harm,nodead][] Spell Lock
+```
+
+### Soulstone announce
+```
+/cast [@mouseover,help,nodead] Soulstone
+/run if UnitExists("mouseover") then SendChatMessage("Soulstoned "..UnitName("mouseover").."!", "RAID") end
+```
+
+---
+
+<br>
+<br>
+
+## 🔹 Shaman Macros
+
+### Focus Wind Shear
+```
+/cast [@focus,harm,nodead] Wind Shear
+```
+
+### Grounding Totem destroy (anti-spell)
+```
+/castsequence reset=10 Grounding Totem, Totemic Call
+```
+
+### Mouseover purge
+```
+/cast [@mouseover,harm,nodead][] Purge
+```
+
+### Bloodlust announce
+```
+/cast Bloodlust
+/run SendChatMessage("BLOODLUST ACTIVATED!", "RAID_WARNING")
+```
+
+---
+
+<br>
+<br>
+
+## 🔹 Druid Macros
+
+### Focus Cyclone
+
+```
+/cast [@focus,harm,nodead] Cyclone
+```
+
+### Travel form auto-switch
+
+```
+/cast [swimming] Aquatic Form; [flyable] Swift Flight Form; Travel Form
+```
+
+### Bear Frenzied Regeneration + Barkskin
+
+```
+/cast Barkskin
+/cast Frenzied Regeneration
+```
+
+### Rebirth with raid announce
+
+```
+/cast [@mouseover,help,dead] Rebirth
+/run if UnitExists("mouseover") then SendChatMessage("Battle-ressing "..UnitName("mouseover").."!", "RAID_WARNING") end
+```
+
+
+---
+
+<br>
+<br>
+
+## 🔹 Communication Examples (All Classes)
+
+* **Generic raid warning:**
+
+```lua
+/run SendChatMessage("Cooldowns NOW!", "RAID_WARNING")
+```
+
+* **Whisper a healer:**
+
+```lua
+/run SendChatMessage("I'm low HP, help!", "WHISPER", nil, "HealerName")
+```
+
+* **Addon sync (hidden comms):**
+
+```lua
+/run SendAddonMessage("MYADDON","readycheck","RAID")
+```
+
+* **Custom emote:**
+
+```lua
+/run DoEmote("dance", UnitName("target"))
+```
+
+---
+
