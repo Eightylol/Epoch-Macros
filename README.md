@@ -482,7 +482,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Growl
 ```
 #showtooltip Growl
-/cast [@mouseover, harm, form:1][@target, harm, form:1] Growl
+/cast [@mouseover,harm,form:1][@target,harm,form:1] Growl
 ```
 
 ### Hibernate
@@ -495,7 +495,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Innervate (untested)
 ```
 #showtooltip Innervate
-/cast [@mouseover,help,exists,nodead][@target,help,exists,nodead][] Innervate 
+/cast [@mouseover,help,nodead][@target,help,nodead][] Innervate 
 ```
 
 ### Pounce / Rake
@@ -585,7 +585,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Innervate
 ```
 #showtooltip Innervate
-/cast [@mouseover,help,exists,nodead][] Innervate 
+/cast [@mouseover,help,nodead][] Innervate 
 /script SendChatMessage("innervated.", "WHISPER", nil, UnitName("mouseover"))
 ```
 * Mouseover with whisper
@@ -773,7 +773,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ```
 #showtooltip Counterspell
 /stopcasting
-/cast [@mouseover,exist,harm][@focus,exist,harm] Counterspell
+/cast [@mouseover,harm,nodead][@focus,harm,nodead] Counterspell
 ```
 
 ### Evocation self-cancel
@@ -800,7 +800,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Polymorph
 ```
 #showtooltip Polymorph
-/cast [@focus, exists] Polymorph;  [@mouseover, exists] Polymorph; Polymorph
+/cast [@mouseover,harm,nodead][@focus,harm,nodead][] Polymorph
 ```
 
 ### Polymorph focus + announce
@@ -846,7 +846,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Cleanse
 ```
 #showtooltip
-/cast [@mouseover,exists,help,nodead][@target,help,nodead,exists][@player][] Cleanse
+/cast [@mouseover,help,nodead][@target,help,nodead][@player][] Cleanse
 ```
 * Cleanse mouseover > Target > Self
 
@@ -867,14 +867,14 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Hand of Freedom
 ```
 #showtooltip Hand of Freedom
-/cast [@mouseover,help,exists,nodead][@target,help,exists,nodead][@player][])Hand of Freedom
+/cast [@mouseover,help,nodead][@target,help,nodead][@player][] Hand of Freedom
 ```
 * Mouseover
 
 ### Hand of Protection
 ```
 #showtooltip Hand of Protection 
-/cast [@mouseover,help,exists,nodead][] Hand of Protection
+/cast [@mouseover,help,nodead][] Hand of Protection
 ```
 * Mouseover
 
@@ -893,15 +893,14 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Holy Light
 ```
 #showtooltip
-/cast [@mouseover, help, nodead] Holy Light
+/cast [@mouseover,help,nodead] Holy Light
 ```
 * Mouseover
 
 ### Holy Shock
 ```
 #showtooltip Holy Shock
-/cast [@mouseover, help, nodead] [help, nodead] Holy Shock;
-[harm, nodead] Holy Shock
+/cast [@mouseover,help,nodead][help,nodead][harm,nodead] Holy Shock
 ```
 * Mouseover
 
@@ -920,6 +919,14 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 /cast [exists,help,nodead][@mouseover,exists,help,nodead][exists,harm,nodead,target=targettarget] Righteous Defense; Righteous Defense
 ```
 * Attempts to taunt, in order, target -> mouseover friendly -> targets target
+
+### Righteous Defense (Eighty rewrite)
+```
+#showtooltip
+/cast [exists,help,nodead][@mouseover,help,nodead][@targettarget,harm,nodead] Righteous Defense
+```
+* Attempts to taunt, in order, target -> mouseover friendly -> targets target
+
 
 ### Seal of Command
 ```
@@ -955,7 +962,7 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Binding Heal
 ```
 #showtooltip Binding Heal
-/cast [@mouseover, exists] Binding Heal; Binding Heal
+/cast [@mouseover,help,nodead][] Binding Heal
 ```
 * Cast on mouseover if present, otherwise on target or self.
 
@@ -968,20 +975,20 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 
 ### Dispel Magic on focus
 ```
-/cast [@focus,exists][] Dispel Magic
+/cast [@focus,help,nodead][] Dispel Magic
 ```
 
 ### Flash Heal
 ```
 #showtooltip Flash Heal
-/cast [@mouseover, exists] Flash Heal; Flash Heal
+/cast [@mouseover,help,nodead][] Flash Heal
 ```
 * Cast on mouseover if present, otherwise on target or self.
 
 ### Greater Heal
 ```
 #showtooltip Greater Heal
-/cast [@mouseover, exists] Greater Heal; Greater Heal
+/cast [@mouseover,help,nodead][] Greater Heal
 ```
 * Cast on mouseover if present, otherwise on target or self.
 
@@ -1012,34 +1019,35 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Pain Suppression
 ```
 #showtooltip Pain Suppression
-/cast [@mouseover, exists] Pain Suppression; [@focus, exists, noharm] Pain Suppression; Pain Suppression
+/cast [@mouseover,help,nodead][@focus,help,nodead][] Pain Suppression
 ```
 * Cast on mouseover if present, then on focus if present, otherwise on target or self.
 
 ### Power Word: Shield
 ```
 #showtooltip Power Word: Shield
-/cast [@mouseover, exists] Power Word: Shield; Power Word: Shield
+/cast [@mouseover,help,nodead][] Power Word: Shield
 ```
 * Cast on mouseover if present, otherwise on target or self.
 
 ### Powerr Infusion
 ```
 #showtooltip Power Infusion
-/cast [@mouseover, exists, noharm] Power Infusion; Power Infusion
+/cast [@mouseover,noharm,nodead][] Power Infusion
 ```
 * Cast on mouseover if present, otherwise on target or self.
 
 ### Prayer of Healing
 ```
 #showtooltip Prayer of Healing
-/cast [target=mouseover,help][help][] Prayer of Healing; Prayer of Healing
+/stopcasting
+/cast Prayer of Healing
 ```
 
 ### Prayer of Mending
 ```
 #showtooltip Prayer of Mending
-/cast [@mouseover, exists, noharm] Prayer of Mending; [@focus, exists, noharm] Prayer of Mending; Prayer of Mending
+/cast [@mouseover,help,nodead][@focus,help,nodead][] Prayer of Mending
 ```
 * Cast on mouseover if present, then on focus if present, otherwise on target or self.
 
@@ -1047,21 +1055,21 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ### Psychic Horror 
 ```
 #Showtooltip Psychic Horror
-/cast [target=mouseover, harm][harm] Psychic Horror
+/cast [@mouseover,harm][harm] Psychic Horror
 ```
 * Mouseover -> target prioritization
 
 ### Psychic Horror
 ```
 #Showtooltip Psychic Horror
-/cast [target=focus] Psychic Horror
+/cast [@focus,harm] Psychic Horror
 ```
 * Focustarget
 
 ### Renew
 ```
 #showtooltip Renew
-/cast [@mouseover, exists] Renew; Renew
+/cast [@mouseover,help,nodead][] Renew
 ```
 * Cast on mouseover if present, otherwise on target or self.
 
@@ -1091,30 +1099,22 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 #showtooltip Shadow Word: Pain
 /use 13
 /use 14
-/cast [@mouseover,harm,nodead] Shadow Word: Pain; Shadow Word: Pain
+/cast [@mouseover,harm,nodead][] Shadow Word: Pain
 ```
 
 ### Silence
 ```
 #showtooltip
-/cast [target=mouseover, harm][harm] Silence
+/cast [@mouseover,harm][harm] Silence
 ```
 * Mouseover -> target prioritization
 
 ### Silence
 ```
 #showtooltip
-/cast [target=focus] Silence
+/cast [@focus,harm] Silence
 ```
 * Focustarget
-
-
-### Silence
-```
-#showtooltip
-/stopcasting
-/cast Silence
-```
 
 ### Wand
 ```
@@ -1222,13 +1222,13 @@ Spam for success
 ```
 #showtooltip Kick
 /startattack
-/cast [@mouseover, exists][@focus, exists][] Kick
+/cast [@mouseover,exists][@focus,exists][] Kick
 ```
 
 ### Pickpocket
 ```
 #showtooltip Pick Pocket
-/targetenemy [no harm][dead]
+/targetenemy [noharm][dead]
 /cast Pick Pocket
 /cleartarget
 ```
@@ -1434,7 +1434,7 @@ Spam for success
 ### Banish Focus
 ```
 #showtooltip Banish
-/use [@focus] [] Banish
+/use [@focus][] Banish
 ```
 
 ### Banish mouseover
@@ -1510,15 +1510,15 @@ Spam for success
 ### Shadow Bolt Rank 1 
 ```
 #showtooltip
-/cast [@mouseover,harm,nodead] [] Shadow Bolt(Rank 1)
+/cast [@mouseover,harm,nodead][] Shadow Bolt(Rank 1)
 ```
 
 ### Soulstone announce
 ```
-/cast [@mouseover,help,nodead] Soulstone
+/cast [@mouseover,help,nodead][] Soulstone
 /run if UnitExists("mouseover") then SendChatMessage("Soulstoned "..UnitName("mouseover").."!", "RAID") end
 ```
-
+* Mouseover > Target > Self
 
 <br>
 <br>
