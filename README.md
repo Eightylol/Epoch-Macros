@@ -2216,8 +2216,7 @@ Spam for success
 ### Fishing - All-in-one
 ```
 #showtooltip Fishing
-/equip [noequipped:FishingPole] Big Iron Fishing Pole
-/use Big-mouth Clam
+/equip [noequipped:FishingPole] Strong Fishing Pole
 /use Bright Baubles
 /use 16
 /click StaticPopup1Button2
