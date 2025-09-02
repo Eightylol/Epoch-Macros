@@ -2213,7 +2213,7 @@ Spam for success
 /use Major Healing Potion
 ```
 
-### Fishing - needs testing
+### Fishing - All-in-one
 ```
 #showtooltip Fishing
 /equip [noequipped:FishingPole] Big Iron Fishing Pole
