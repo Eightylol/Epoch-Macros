@@ -2135,10 +2135,38 @@ Hold Shift to clear.
 /cast [@mouseover,help,nodead][] Flash Heal
 ```
 
+### Multi Racial
+```
+#showtooltip
+/cast Blood Fury
+/cast Berserking
+/cast Every Man for Himself
+/cast Will of the Forsaken
+```
+* Only the racial you actually have will go off.
+* The others silently fail.
+
+### Trinket swap
+```
+#showtooltip Aspirant's Insignia of the Alliance
+/equipslot 13 Emblem of Alacrity
+/equipslot 14 Aspirant's Insignia of the Alliance
+```
+* Create two of these with different trinkets to swap between
+
+### Trinket swap toggle (advanced)
+```
+#showtooltip 14
+/run i=GetInventoryItemID("player",14) if i==61291 then EquipItemByName(61301,13) EquipItemByName(64794,14) else EquipItemByName(61301,13) EquipItemByName(61291,14) end
+```
+* Checks if current item in slot 14 is ItemID 61291.
+* If true, equip ItemID 61301 + 64794
+* else equip ItemID 61301 + 61291
+* Useful to swap between PvE & PvP , or switch between long CD trinkets
+
 <br>
 <br>
-<br>
-<br>
+
 
 
 
