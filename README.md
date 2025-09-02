@@ -19,7 +19,8 @@ Project Epoch inherits all of these features.
     - [Combat-Legal Lua](#-5-combat-legal-lua)
     - [Communication Macro Toolkit](#-6-communication-macro-toolkit)
     - [Communication Examples (All Classes)](#-7-communication-examples-all-classes)
-    - [Special Notes](#-8-special-notes)
+    - [Quick Reference](#-8-quick-reference)
+    - [Special Notes](#-9-special-notes)
 - [Druid Macros](#-druid-macros)
 - [Hunter Macros](#-hunter-macros)
 - [Mage Macros](#-mage-macros)
@@ -373,7 +374,122 @@ Here are practical templates you can adapt:
 <br>
 
 
-## ✅ 8. Special Notes
+## 🔹 8. Quick Reference
+
+<br>
+
+### **Slot IDs**
+
+---
+
+| Slot ID | Slot Name      | Slot ID | Slot Name       |
+|---------|----------------|---------|-----------------|
+| 0       | Ammo           | 10      | Hands           |
+| 1       | Head           | 11      | Finger 1        |
+| 2       | Neck           | 12      | Finger 2        |
+| 3       | Shoulder       | 13      | Trinket 1       |
+| 4       | Shirt          | 14      | Trinket 2       |
+| 5       | Chest          | 15      | Back            |
+| 6       | Waist          | 16      | Main hand       |
+| 7       | Legs           | 17      | Off hand        |
+| 8       | Feet           | 18      | Ranged / Relic  |
+| 9       | Wrist          | 19      | Tabard          |
+---
+<br>
+
+
+### **Commands**
+---
+
+| Command | Description |
+|---------|-------------|
+| #show * | Show the icon of a spell, item, or macro condition |
+| #showtooltip * | Show the tooltip and icon of a spell, item, or macro condition |
+| /assist | Target the same target as a party or raid member |
+| /cancelaura | Remove a buff or debuff from yourself |
+| /cancelform | Cancel your current stance/form (e.g., Druid forms) |
+| /cast | Cast a spell by name |
+| /castrandom | Cast a random spell from a list |
+| /castsequence | Cast spells in a specific sequence |
+| /changeactionbar | Switch action bar pages |
+| /clearfocus | Clear your focus target |
+| /cleartarget | Clear your current target |
+| /click | Simulate clicking a UI button |
+| /dismount | Dismount |
+| /equip + | Equip an item by name |
+| /equipslot + | Equip an item into a specific slot |
+| /equipset + | Equip a saved equipment set |
+| /focus | Set a focus target |
+| /petaggressive | Set your pet to aggressive mode |
+| /petattack | Order your pet to attack your target |
+| /petautocastoff | Turn off a pet ability autocast |
+| /petautocaston | Turn on a pet ability autocast |
+| /petdefensive | Set your pet to defensive mode |
+| /petfollow | Order your pet to follow you |
+| /petpassive | Set your pet to passive mode |
+| /petstay | Order your pet to stay in place |
+| /startattack | Begin auto-attacking your target |
+| /stopattack | Stop auto-attacking |
+| /stopcasting | Interrupt your current cast |
+| /stopmacro | Stop executing the current macro |
+| /swapactionbar | Swap action bars (page switching) |
+| /target | Target a specific unit |
+| /targetenemy | Target the nearest enemy |
+| /targetenemyplayer | Target the nearest enemy player |
+| /targetfriend | Target the nearest friendly unit |
+| /targetlasttarget | Target your previous target |
+| /targetparty | Target a party member |
+| /targetraid | Target a raid member |
+| /use | Use an item or equipment slot |
+| /usetalents + | Activate a talent spec via the in-game talent system |
+| /userandom | Use a random spell or item from a list |
+---
+
+
+<br>
+
+
+### **Conditionals**
+
+--- 
+
+| Conditional | Description |
+|-------------|-------------|
+| actionbar:1/.../6 or bar:1/.../6 | Given action bar page is selected |
+| bonusbar:5 | The possess bar is active (controlling a vehicle or another player) |
+| button:1/.../5/<virtual click> or btn:1/.../5/<virtual click> | Macro activated with the given mouse button |
+| channeling:<spell name> | Channeling the given spell |
+| combat | In combat |
+| cursor | What the cursor is currently holding (see API_GetCursorInfo for types) |
+| dead | Target is dead |
+| equipped:<item type> or worn:<item type> | Item type is equipped (can be an inventory slot, item type, or subtype) |
+| exists | Target exists |
+| flyable | In a zone where flying is allowed (does not check if you have flying skill) |
+| flying | Mounted or in flight form AND in the air |
+| group:party/raid | You are in the given type of group |
+| harm | Can cast harmful spells on the target |
+| help | Can cast helpful spells on the target |
+| indoors | Indoors |
+| modifier:shift/ctrl/alt or mod:shift/ctrl/alt | Holding the given key |
+| mounted | Mounted |
+| outdoors | Outdoors |
+| party | Target is in your party |
+| pet:<pet name or type> | The given pet is out |
+| raid | Target is in your raid/party |
+| spec:1/2 | Currently active class specialization |
+| stance:0/1/2/.../n or form:0/.../n | In a stance or form |
+| stealth | Stealthed |
+| swimming | Swimming |
+| talent:<tier#>/<column#> | Talent from column# of tier# is selected |
+| unithasvehicleui | The target of the macro has vehicle UI |
+| vehicleui | The player has vehicle UI |
+---
+
+<br>
+<br>
+<br>
+
+## ✅ 9. Special Notes
 
 - Macro system in 3.3.5: /cast, /use, /castsequence, /focus, /click, /run
 - You can’t **condition on health/mana values** in 3.3.5 macros (protected functions).
