@@ -864,10 +864,12 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 
 ### Steady Shot
 ```
-#showtooltip Steady Shot
-/cast Kill Command
-/cast Steady Shot
+#showtooltip Steady Shot             
+/Cast [@pettarget,exists] Kill Command
+/Cast Steady Shot
+/run UIErrorsFrame:Clear()
 ```
+
 
 <br>
 <br>
@@ -1036,6 +1038,18 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 /cast [@mouseover,help,nodead] Holy Light
 ```
 * Mouseover
+
+### Holy Light lazy cds 
+```
+#showtooltip
+/cast Divine Illumination
+/cast [combat] Divine Favor
+/run UIErrorsFrame:Clear()
+/use 13
+/cast Holy Light
+/cqs
+```
+* Usese Divine Illumination, Divine Favor & Trinket on CD. 
 
 ### Holy Shock
 ```
@@ -1918,6 +1932,19 @@ Spam for success
 /cast Defensive Stance
 /cast Shield Wall
 ```
+
+### One-button rotation
+```
+#showtooltip
+/startattack
+/use 13
+/use 14
+/cast [combat,@target,harm] Rampage
+/castsequence reset=target Whirlwind, Bloodthirst, Bloodthirst
+/cast [mod:shift] Cleave; [nomod] Heroic Strike
+```
+* My attempt to create a 1-button rotation for fury
+
 
 ### Rend
 ```
