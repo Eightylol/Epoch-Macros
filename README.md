@@ -887,11 +887,26 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 ```
 * Can also be used with [nochanneling : Arcane Missiles]
 
+### Arcane Explosion
+```
+#showtooltip
+/cast [combat] Arcane Explosion; Arcane Explosion(Rank 1)
+```
+* Arcane Explosion max rank if in combat, rank 1 otherwise
+* Useful for finding stealthed players at a low Mana cost.
+
 ### Blizzard
 ```
 #showtooltip Blizzard
 /cast Blizzard
 ```
+
+### Conjure Food / Water
+```
+#showtooltip
+/cast [mod:shift] Conjure Food; Conjure Water
+```
+
 
 ### Counterspell
 ```
@@ -909,9 +924,10 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 
 ### Frostbolt
 ```
-#showtooltip Frostbolt
-/cast Frostbolt
+#showtooltip
+/cast [mod:alt] Frostbolt(Rank 1); Frostbolt
 ```
+* Frostbolt rank 1 if "alt" key is pressed, max rank otherwise 
 
 ### Ice Block
 ```
@@ -1618,6 +1634,17 @@ Spam for success
 /cast Incinerate
 ```
 
+### Pet attack totems
+```
+/tar Windfury Totem;/tar Earthbind Totem;/tar Mana Tide Totem;/tar Tremor Totem;/tar Grounding Totem;/petattack;
+```
+
+### Pet Spell Lock
+```
+#showtooltip
+/cast [@pettarget, harm] [] Spell Lock
+```
+
 ### Pet Spell Lock (focus)
 ```
 /cast [@focus,harm,nodead][] Spell Lock
@@ -1649,6 +1676,31 @@ Spam for success
 /run if UnitExists("mouseover") then SendChatMessage("Soulstoned "..UnitName("mouseover").."!", "RAID") end
 ```
 * Mouseover > Target > Self
+
+### Succubus Seduction
+```
+#showtooltip Seduction
+/stopmacro [nopet:succubus]
+/petfollow
+/petattack [@pettarget]
+/cast [button:1,@pettarget] Seduction
+/cast [button:2,@playertarget] Seduction
+```
+* Mouse 1 Seduce pets target
+* Mouse 2 Seduce your target
+
+### Voidwalker Shield + Summon
+```
+#showtooltip
+/stopmacro [nocombat]
+/stopmacro [nopet:voidwalker]
+/cast [pet:voidwalker] Sacrifice
+/cast fel domination
+/stopcasting
+/cast summon voidwalker
+```
+* Sacrifice VW, Cast Fel Domination, summon another VW. Only works in combat
+
 
 <br>
 <br>
