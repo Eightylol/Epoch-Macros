@@ -614,6 +614,14 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 /cast [@mouseover,help,nodead][@target,help,nodead][] Innervate 
 ```
 
+### Mark of the Wild / Gift of the Wild
+```
+#showtooltip
+/cast [group] Gift of the Wild; Mark of the Wild
+```
+* Cast Gift of the Wild if you are in a group
+* Cast Mark of the Wild if you are solo
+
 ### Pounce / Rake
 ```
 #showtooltip
