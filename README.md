@@ -1369,6 +1369,12 @@ Spam for success
 /use 16
 ```
 
+### Redirect / Kidney Shot
+```
+#showtooltip
+/castsequence [mod:shift][] Redirect, Kidney Shot
+```
+
 ### Riposte / Sinister Strike
 ```
 #showtooltip
@@ -2210,7 +2216,7 @@ Spam for success
 ### Bandage
 ```
 #showtooltip
-/use [target=player] Heavy Runecloth Bandage
+/use [@player] Heavy Runecloth Bandage
 ```
 * Apply Bandage on self without losing target
 
