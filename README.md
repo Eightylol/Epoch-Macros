@@ -820,16 +820,23 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 /cast [@pet,nodead] Mend Pet
 ```
 
-### Misdirection macro
+### Misdirection
 ```
-/cast [@focus,help][@pet,exists] Misdirection
+/cast [@focus,help][help][@pet,exists] Misdirection
 ```
-* Casts on focus if friendly, else on pet.
+* Casts on focus if friendly. If focus not present, casts on friendly target.
+* If focus or target is not friendly, cast on pet.
 
 ### Pet attack / follow toggle
 ```
 /petattack [@target,harm]
 /petfollow [@target,noexists]
+```
+
+### Pet move to
+```
+#showtooltip
+/petmoveto
 ```
 
 ### Rapid Fire
