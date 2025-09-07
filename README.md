@@ -812,14 +812,6 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 /cast Mongoose Bite
 ```
 
-### Mend Pet
-```
-#showtooltip Mend Pet
-/cast [@pet,dead] Revive Pet
-/cast [nopet] Call Pet
-/cast [@pet,nodead] Mend Pet
-```
-
 ### Misdirection
 ```
 /cast [@focus,help][help][@pet,exists] Misdirection
@@ -847,6 +839,19 @@ Example: /cast [target=mouseover] Heal is the same as /cast [@mouseover] Heal.
 /petattack
 /cast Rapid Fire
 ```
+
+
+### Revive / Call / Mend Pet
+```
+#showtooltip
+/cast [@pet,dead,exists] Revive Pet
+/cast [nopet] Call Pet
+/cast [@pet,nodead,exists] Mend Pet
+```
+* If pet is dead - Revive pet
+* If no pet is summoned - Call pet
+* If pet is summoned and not dead - mend pet
+
 
 ### Scatter Shot
 ```
